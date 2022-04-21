@@ -22,5 +22,5 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.Minestom:Minestom:baca58daa6")
+    implementation("com.github.Minestom:Minestom:21e6ed4918")
 }
