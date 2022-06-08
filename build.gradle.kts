@@ -1,6 +1,6 @@
 plugins {
     java
-    id ("com.github.johnrengelman.shadow") version "7.0.0"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 java {
@@ -9,18 +9,30 @@ java {
     }
 }
 
-tasks.jar {
-    dependsOn("shadowJar")
-    manifest {
-        attributes(mapOf("Main-Class" to "net.theEvilReaper.minestom.Start"))
-    }
-}
-
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
 }
 
+val minestomVersion = "master-SNAPSHOT"
+
 dependencies {
-    implementation("com.github.Minestom:Minestom:21e6ed4918")
+    implementation("com.github.Minestom:Minestom:$minestomVersion")
+}
+
+tasks {
+
+    compileJava {
+        options.encoding = "UTF-8"
+    }
+
+    jar {
+        archiveFileName.set("${rootProject.name}.${archiveExtension.getOrElse("jar")}")
+
+        dependsOn("shadowJar")
+
+        manifest {
+            attributes(mapOf("Main-Class" to "net.theEvilReaper.minestom.Start"))
+        }
+    }
 }
