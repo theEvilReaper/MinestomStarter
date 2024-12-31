@@ -6,4 +6,5 @@ Currently, the application only accepts the `server.host` and `server.port` vari
 
 > [!CAUTION]
 > The project may support additional variables in the future.  
-> My time is currently limited, and which variables are added will depend on the context.
+> My time is currently limited for the next weeks and months.
+> Which variables are supported in the future depends on the context
